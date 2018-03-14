@@ -1,7 +1,9 @@
 import db.DBHelper;
 import models.Course;
+import models.Instructor;
 import models.Lesson;
 import models.Student;
+import sun.security.pkcs11.Secmod;
 
 import java.util.List;
 
@@ -16,6 +18,9 @@ public class Runner {
 
         Lesson lesson1 = new Lesson("Intro", 101, course2);
         DBHelper.save(lesson1);
+
+        Instructor instructor1 = new Instructor("Stewie");
+        DBHelper.save(instructor1);
 
         Student student1 = new Student("Peter", 18, 12345, course1);
         DBHelper.save(student1);
@@ -36,6 +41,7 @@ public class Runner {
         List<Lesson> allLessons = DBHelper.getAll(Lesson.class);
 
         DBHelper.addStudentToLesson(student2, lesson1);
+        DBHelper.addInstructorToCourse(instructor1, course2);
 
     }
 }

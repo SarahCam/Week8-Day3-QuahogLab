@@ -1,5 +1,7 @@
 package db;
 
+import models.Course;
+import models.Instructor;
 import models.Lesson;
 import models.Student;
 import org.hibernate.Criteria;
@@ -95,5 +97,12 @@ public class DBHelper {
         student.addLesson(lesson);
         save(student);
         save(lesson);
+    }
+
+    public static void addInstructorToCourse(Instructor instructor, Course course){
+        instructor.addCourse(course);
+        course.addInstructor(instructor);
+        save(course);
+        save(instructor);
     }
 }
