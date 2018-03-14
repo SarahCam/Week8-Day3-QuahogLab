@@ -6,6 +6,7 @@ import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 
+import java.util.GregorianCalendar;
 import java.util.List;
 
 import static junit.framework.Assert.assertEquals;
@@ -17,7 +18,9 @@ public class StudentTest {
 
     @Before
     public void setUp() throws Exception {
-        course = new Course("Engineering", "Bsc");
+        GregorianCalendar startDate = new GregorianCalendar(2018, 1, 12);
+        GregorianCalendar endDate = new GregorianCalendar(2022, 1, 12);
+        course = new Course("Engineering", "Bsc", startDate, endDate);
         student = new Student("Stewie", 2, 23475, course);
         DBHelper.save(course);
         DBHelper.save(student);

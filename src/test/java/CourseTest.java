@@ -5,6 +5,7 @@ import org.junit.Before;
 import org.junit.Test;
 import org.omg.CORBA.CODESET_INCOMPATIBLE;
 
+import java.util.GregorianCalendar;
 import java.util.List;
 
 import static junit.framework.Assert.assertEquals;
@@ -15,7 +16,9 @@ public class CourseTest {
 
     @Before
     public void setUp() {
-        course = new Course("Computing Science", "Masters");
+        GregorianCalendar startDate = new GregorianCalendar(2018, 1, 12);
+        GregorianCalendar endDate = new GregorianCalendar(2022, 1, 12);
+        course = new Course("Computing Science", "Masters", startDate, endDate);
         DBHelper.save(course);
     }
 

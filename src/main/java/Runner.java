@@ -5,18 +5,24 @@ import models.Lesson;
 import models.Student;
 import sun.security.pkcs11.Secmod;
 
+import java.util.GregorianCalendar;
 import java.util.List;
 
 public class Runner {
 
+
     public static void main(String[] args) {
+
+        GregorianCalendar startDate = new GregorianCalendar(2018, 1, 12);
+        GregorianCalendar endDate = new GregorianCalendar(2022, 1, 12);
+
 
         Instructor instructor1 = new Instructor("Stewie");
         DBHelper.save(instructor1);
 
-        Course course1 = new Course("English", "Masters");
+        Course course1 = new Course("English", "Masters", startDate, endDate );
         DBHelper.save(course1);
-        Course course2 = new Course("Geography", "HNC");
+        Course course2 = new Course("Geography", "HNC", startDate, endDate);
         DBHelper.save(course2);
 
 

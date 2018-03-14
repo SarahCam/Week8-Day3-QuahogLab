@@ -1,6 +1,8 @@
 package models;
 
 import javax.persistence.*;
+import java.util.Date;
+import java.util.GregorianCalendar;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -14,14 +16,18 @@ public class Course {
     private Set<Student> students;
     private Set<Lesson> lessons;
     private Set<Instructor> instructors;
+    private GregorianCalendar startDate;
+    private GregorianCalendar endDate;
 
     public Course() {
     }
 
-    public Course(String title, String level) {
+    public Course(String title, String level, GregorianCalendar startDate, GregorianCalendar endDate) {
         this.title = title;
         this.level = level;
         this.instructors = new HashSet<Instructor>();
+        this.startDate = startDate;
+        this.endDate = endDate;
     }
 
     @Id
@@ -87,4 +93,6 @@ public class Course {
     public void addInstructor(Instructor instructor){
         this.instructors.add(instructor);
     }
+
+
 }
