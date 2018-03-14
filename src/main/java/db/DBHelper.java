@@ -1,5 +1,7 @@
 package db;
 
+import models.Lesson;
+import models.Student;
 import org.hibernate.Criteria;
 import org.hibernate.HibernateException;
 import org.hibernate.Session;
@@ -86,5 +88,12 @@ public class DBHelper {
         cr.add(Restrictions.eq("id", id));
         result = getUnique(cr);
         return result;
+    }
+
+    public static void addStudentToLesson(Student student, Lesson lesson){
+        lesson.addStudent(student);
+        student.addLesson(lesson);
+        save(student);
+        save(lesson);
     }
 }
