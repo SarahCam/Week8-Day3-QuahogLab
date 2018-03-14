@@ -11,6 +11,7 @@ public class Course {
     private String title;
     private String level;
     private Set<Student> students;
+    private Set<Lesson> lessons;
 
     public Course() {
     }
@@ -56,5 +57,14 @@ public class Course {
 
     public void setStudents(Set<Student> students) {
         this.students = students;
+    }
+
+    @OneToMany(mappedBy = "course")
+    public Set<Lesson> getLessons() {
+        return lessons;
+    }
+
+    public void setLessons(Set<Lesson> lessons) {
+        this.lessons = lessons;
     }
 }

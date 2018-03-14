@@ -1,5 +1,6 @@
 import db.DBHelper;
 import models.Course;
+import models.Lesson;
 import models.Student;
 
 import java.util.List;
@@ -12,6 +13,9 @@ public class Runner {
         DBHelper.save(course1);
         Course course2 = new Course("Geography", "HNC");
         DBHelper.save(course2);
+
+        Lesson lesson1 = new Lesson("Intro", 101, course2);
+        DBHelper.save(lesson1);
 
         Student student1 = new Student("Peter", 18, 12345, course1);
         DBHelper.save(student1);
