@@ -11,16 +11,19 @@ public class Runner {
 
     public static void main(String[] args) {
 
+        Instructor instructor1 = new Instructor("Stewie");
+        DBHelper.save(instructor1);
+
         Course course1 = new Course("English", "Masters");
         DBHelper.save(course1);
         Course course2 = new Course("Geography", "HNC");
         DBHelper.save(course2);
 
-        Lesson lesson1 = new Lesson("Intro", 101, course2);
+
+
+        Lesson lesson1 = new Lesson("Intro", 101, course2, instructor1);
         DBHelper.save(lesson1);
 
-        Instructor instructor1 = new Instructor("Stewie");
-        DBHelper.save(instructor1);
 
         Student student1 = new Student("Peter", 18, 12345, course1);
         DBHelper.save(student1);
@@ -39,6 +42,7 @@ public class Runner {
         List<Student> allStudents = DBHelper.getAll(Student.class);
         List<Course> allCourses = DBHelper.getAll(Course.class);
         List<Lesson> allLessons = DBHelper.getAll(Lesson.class);
+        List<Instructor> allInstructors = DBHelper.getAll(Instructor.class);
 
         DBHelper.addStudentToLesson(student2, lesson1);
         DBHelper.addInstructorToCourse(instructor1, course2);

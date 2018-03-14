@@ -11,6 +11,7 @@ public class Instructor {
     private int id;
     private String name;
     private Set<Course> courses;
+    private Set<Lesson> lessons;
 
     public Instructor() {
     }
@@ -51,5 +52,14 @@ public class Instructor {
 
     public void addCourse(Course course){
         this.courses.add(course);
+    }
+
+    @OneToMany(mappedBy = "instructor")
+    public Set<Lesson> getLessons() {
+        return lessons;
+    }
+
+    public void setLessons(Set<Lesson> lessons) {
+        this.lessons = lessons;
     }
 }
