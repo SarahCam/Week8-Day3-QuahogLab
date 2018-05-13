@@ -94,5 +94,21 @@ public class Course {
         this.instructors.add(instructor);
     }
 
+    @Column(name="start_date")
+    public GregorianCalendar getStartDate() {
+        return startDate;
+    }
 
+    public void setStartDate(GregorianCalendar startDate) {
+        this.startDate = startDate;
+    }
+
+    @Column(name="end_date")
+    public GregorianCalendar getEndDate() {
+        return endDate;
+    }
+
+    public void setEndDate(GregorianCalendar endDate) {
+        this.endDate = endDate;
+    }
 }
